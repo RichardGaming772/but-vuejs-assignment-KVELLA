@@ -19,9 +19,8 @@ createApp({
     },
     methods: {
         loadcounter() {
-            console.log(this.loadedImgs);
             this.loadedImgs += 1;
-            if (this.loadedImgs >= this.memes.length){
+            if (this.loadedImgs >= this.memes.length) {
                 this.loaded = true;
             }
         }
