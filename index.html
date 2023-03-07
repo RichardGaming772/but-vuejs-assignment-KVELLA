@@ -11,8 +11,11 @@
 <body>
     <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
 
-    <div id="app">{{ message }}
-        <div class="memeBox" v-for="meme in memes" :key="meme.id">
+    <div id="app">
+        <p>
+            Search : <input v-model="searchTerm" type="text">
+        </p>
+        <div class="memeBox" v-for="meme in filteredMemes" :key="meme.id">
             <h3>{{meme.name}}</h3>
             <img class="memeImg" :src="meme.url">
         </div>

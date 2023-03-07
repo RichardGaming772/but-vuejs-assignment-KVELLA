@@ -4,11 +4,13 @@ createApp({
     data() {
         return {
             memes: [],
-            message: 'Hello Vue!'
+            searchTerm: ""
         }
     },
     computed: {
-
+        filteredMemes() {
+            return this.memes.filter(m => m.name.toLowerCase().includes(this.searchTerm.toLowerCase()) )
+        }
     },
     methods: {
 
