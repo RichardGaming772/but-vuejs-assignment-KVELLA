@@ -4,22 +4,26 @@ createApp({
     data() {
         return {
             memes: [],
-            searchTerm: ""
+            searchTerm: "",
+            resultCount: 0
         }
     },
     computed: {
         filteredMemes() {
-            return this.memes.filter(m => m.name.toLowerCase().includes(this.searchTerm.toLowerCase()) )
+            filtered = this.memes.filter(m => m.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+            this.resultCount = filtered.length;
+            return filtered;
         }
     },
     methods: {
 
     },
     mounted() {
-        fetch("resources/light/data.json")
-        .then(res => res.json())
-        .then(data => {
-          this.memes = data
-        })
+        fetch("https://api.imgflip.com/get_memes")
+            .then(res => res.json())
+            .then(data => {
+                this.memes = data.data.memes;
+                this.resultCount = data.data.memes.length;
+            })
     }
 }).mount('#app')
