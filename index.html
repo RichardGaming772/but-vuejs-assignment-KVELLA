@@ -5,15 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS Lite</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
 
     <div id="app">{{ message }}
-        <div v-for="meme in memes" :key="meme.id">
+        <div class="memeBox" v-for="meme in memes" :key="meme.id">
             <h3>{{meme.name}}</h3>
-            <img :src="meme.url">
+            <img class="memeImg" :src="meme.url">
         </div>
     </div>
 
