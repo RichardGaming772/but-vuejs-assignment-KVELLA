@@ -12,15 +12,18 @@
     <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script>
 
     <div id="app">
+        <div id="loader" :class="{ loading: !loaded}"></div>
         <div class="searchbox">
             Search : <input v-model="searchTerm" type="text">
             <p>{{resultCount}} résultat(s)</p>
         </div>
         <div class="memeBox" v-for="meme in filteredMemes" :key="meme.id">
             <h3>{{meme.name}}</h3>
-            <img class="memeImg" :src="meme.url">
+            <img class="memeImg" :src="meme.url" @load="loadcounter">
         </div>
     </div>
+
+    <!-- <img src="https://cdn.meme.market/static/pub/images/meme/G07GKqULSCi96KNDv-5mww.png"> -->
 
     <script src="main.js"></script>
 </body>
